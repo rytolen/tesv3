@@ -112,7 +112,24 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+/* Info Mobil */
+.info-mobil {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: left;
+}
 
+.info-mobil p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.info-mobil strong {
+    color: var(--primary-color);
+}
     /* Foto Mobil */
 .foto-mobil-container {
     text-align: center;
@@ -258,10 +275,12 @@
         </div>
 
         <!-- Foto Mobil -->
-       <div class="foto-mobil-container" id="fotoMobilContainer" style="display: none;">
+      <div class="foto-mobil-container" id="fotoMobilContainer" style="display: none;">
     <img src="" class="foto-mobil" id="fotoMobil" alt="Foto Mobil" onclick="showFullPhoto(this.src)">
-    <p id="dataKir"></p>
-    <p id="dataPajak"></p>
+    <div class="info-mobil">
+        <p><strong>KIR:</strong> <span id="infoKIR">-</span></p>
+        <p><strong>Pajak:</strong> <span id="infoPajak">-</span></p>
+    </div>
 </div>
 
         <table id="hasil" style="display:none;">
@@ -293,7 +312,7 @@
             document.querySelector('.loading').style.display = 'block';
             try {
                 if (!barcode) return;
-                let url = `https://script.google.com/macros/s/AKfycbwh2FtlCkyMQbNjJeqTp88eo95e5pZRiS7BHrUOqg7Q4XkxPct1_u6kIuiQOIgGjYFB/exec?barcode=${barcode}`;
+                let url = `https://script.google.com/macros/s/AKfycbzCqAUoqD-5kX1Z86j_6STcCYWXyJ4uY7yixiO0OJqcimwDwhOvw5Bgjg9cQ4u0gHNN/exec?barcode=${barcode}`;
                 let response = await fetch(url);
                 let data = await response.json();
 
@@ -309,8 +328,8 @@
                     document.getElementById('fotoMobil').src = data[0].foto;
 
                      // Tampilkan KIR dan Pajak
-                     document.getElementById('dataKir').innerText = `KIR: ${data[0].kir}`;
-                    document.getElementById('dataPajak').innerText = `Pajak: ${data[0].pajak}`;
+                     document.getElementById('infoKIR').textContent = data[0].kir || '-';
+            document.getElementById('infoPajak').textContent = data[0].pajak || '-';
 
                     // Tampilkan data riwayat
                     data.forEach(item => {
