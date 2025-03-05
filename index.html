@@ -258,9 +258,11 @@
         </div>
 
         <!-- Foto Mobil -->
-        <div class="foto-mobil-container" id="fotoMobilContainer" style="display: none;">
-            <img src="" class="foto-mobil" id="fotoMobil" alt="Foto Mobil" onclick="showFullPhoto(this.src)">
-        </div>
+       <div class="foto-mobil-container" id="fotoMobilContainer" style="display: none;">
+    <img src="" class="foto-mobil" id="fotoMobil" alt="Foto Mobil" onclick="showFullPhoto(this.src)">
+    <p id="dataKir"></p>
+    <p id="dataPajak"></p>
+</div>
 
         <table id="hasil" style="display:none;">
             <thead>
@@ -305,6 +307,10 @@
                     // Tampilkan foto mobil
                     document.getElementById('fotoMobilContainer').style.display = 'block';
                     document.getElementById('fotoMobil').src = data[0].foto;
+
+                     // Tampilkan KIR dan Pajak
+                     document.getElementById('dataKir').innerText = `KIR: ${data[0].kir}`;
+                    document.getElementById('dataPajak').innerText = `Pajak: ${data[0].pajak}`;
 
                     // Tampilkan data riwayat
                     data.forEach(item => {
