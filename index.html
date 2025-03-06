@@ -296,7 +296,7 @@
 </div>
         
        <!-- info tune up Mobil -->
-        <div class="info-mobil" style="display: none;">
+        <div class="info-mobil" id="tuneupContainer" style="display: none;">
         <p>
             <i class="fas fa-cogs"></i> <!-- tuneup mesin -->
             <strong>Tune UP Mesin:</strong> <span id="tuneupmesin">-</span>
@@ -359,6 +359,7 @@
                     document.getElementById('infoPajak').textContent = data[0].pajak || '-';
 
                      // Tampilkan tuneup
+                    document.getElementById('tuneupContainer').style.display = 'block';
                      document.getElementById('tuneupmesin').textContent = data[0].tuneupm || '-';
                     document.getElementById('tuneupthermo').textContent = data[0].tuneupt || '-';
 
