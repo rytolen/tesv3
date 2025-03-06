@@ -304,6 +304,8 @@
                     <th>Form Perbaikan</th>
                     <th>Tanggal Selesai</th> 
                     <th>Status</th>
+                    <th>Tune UP Mesin</th> 
+                    <th>Tune UP Thermo</th> 
                 </tr>
             </thead>
             <tbody id="dataRiwayat"></tbody>
@@ -325,7 +327,7 @@
             document.querySelector('.loading').style.display = 'block';
             try {
                 if (!barcode) return;
-                let url = `https://script.google.com/macros/s/AKfycbxOiZwXXsyi178Tud2rSPI5YLtbb8Q2DLmTlD1obZkkGeiRH70UR32jg65LIwzuKos/exec?barcode=${barcode}`;
+                let url = `https://script.google.com/macros/s/AKfycbwVkHhjslkZ-g4bIn8_MTz9_og76PI9WxOlDQUXaR-VTym8gxgSDKuH4XoCNyZm8T5-/exec?barcode=${barcode}`;
                 let response = await fetch(url);
                 let data = await response.json();
 
@@ -385,6 +387,20 @@
                                     <span>Status</span>
                                 </div>
                                 <span class="status ${statusClass}">${item.status}</span>
+                            </td>
+                             <td>
+                                <div class="label-container">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Tune UP Mesin</span>
+                                </div>
+                                ${item.tuneupm}
+                            </td>
+                             <td>
+                                <div class="label-container">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Tune UP Thermo</span>
+                                </div>
+                                ${item.tuneupt}
                             </td>
                         </tr>`;
                         tbody.innerHTML += row;
