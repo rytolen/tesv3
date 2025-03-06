@@ -130,6 +130,12 @@
 .info-mobil strong {
     color: var(--primary-color);
 }
+
+.info-mobil i {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+    color: var(--primary-color); /* Warna ikon */
+    font-size: 1.2em; /* Ukuran ikon */
+}
     /* Foto Mobil */
 .foto-mobil-container {
     text-align: center;
@@ -278,8 +284,14 @@
       <div class="foto-mobil-container" id="fotoMobilContainer" style="display: none;">
     <img src="" class="foto-mobil" id="fotoMobil" alt="Foto Mobil" onclick="showFullPhoto(this.src)">
  <div class="info-mobil">
-        <p><strong>KIR:</strong> <span id="infoKIR">-</span></p>
-        <p><strong>Pajak:</strong> <span id="infoPajak">-</span></p>
+        <p>
+            <i class="fas fa-file-alt"></i> <!-- Ikon untuk KIR -->
+            <strong>KIR:</strong> <span id="infoKIR">-</span>
+        </p>
+        <p>
+            <i class="fas fa-receipt"></i> <!-- Ikon untuk Pajak -->
+            <strong>Pajak:</strong> <span id="infoPajak">-</span>
+        </p>
     </div>
 </div>
        
