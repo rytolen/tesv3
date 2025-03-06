@@ -294,6 +294,18 @@
         </p>
     </div>
 </div>
+        
+       <!-- info tune up Mobil -->
+        <div class="info-mobil">
+        <p>
+            <i class="fas fa-cogs"></i> <!-- tuneup mesin -->
+            <strong>Tune UP Mesin:</strong> <span id="tunupmesin">-</span>
+        </p>
+        <p>
+            <i class="fas fa-cogs"></i> <!-- tuneup thermo -->
+            <strong>Tune UP Thermo:</strong> <span id="tunupthermo">-</span>
+        </p>
+    </div>
        
 
         <table id="hasil" style="display:none;">
@@ -344,7 +356,11 @@
 
                      // Tampilkan KIR dan Pajak
                      document.getElementById('infoKIR').textContent = data[0].kir || '-';
-            document.getElementById('infoPajak').textContent = data[0].pajak || '-';
+                    document.getElementById('infoPajak').textContent = data[0].pajak || '-';
+
+                     // Tampilkan tuneup
+                     document.getElementById('tunupmesin').textContent = data[0].tuneupm || '-';
+                    document.getElementById('tuneupthermo').textContent = data[0].tuneupt || '-';
 
                     // Tampilkan data riwayat
                     data.forEach(item => {
