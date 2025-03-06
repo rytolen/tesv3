@@ -348,7 +348,7 @@
 
                     // Tampilkan data riwayat
                     data.forEach(item => {
-                        let tanggalPerbaikan = formatTanggal(item.tanggal_perbaikan);
+                        let tanggalPerbaikan = item.tanggal_perbaikan ? formatTanggal(item.tanggal_perbaikan) : "-";
                         let tanggalSelesai = item.tanggal_selesai ? formatTanggal(item.tanggal_selesai) : "-";
                         let statusClass = item.status.toLowerCase() === "selesai" ? "selesai" : "proses";
                         let row = `<tr>
