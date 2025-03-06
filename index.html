@@ -327,7 +327,7 @@
             document.querySelector('.loading').style.display = 'block';
             try {
                 if (!barcode) return;
-                let url = `https://script.google.com/macros/s/AKfycbyOxweyqB1vfE8lishGezvLuXKwvnbgASPe4IznhwdWg5-rx17202NTcSDdUFLkmEvl/exec?barcode=${barcode}`;
+                let url = `https://script.google.com/macros/s/AKfycbzImTrHbSsVfYat8Cvr4qiGSrJwpPzf4TvAvqnlzVjuh8ps4aKGgNLly5_aO1hctSqR/exec?barcode=${barcode}`;
                 let response = await fetch(url);
                 let data = await response.json();
 
