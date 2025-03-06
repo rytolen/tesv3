@@ -116,11 +116,15 @@
 .info-mobil {
     margin-top: 10px;
     padding: 10px;
-    background: #ffffff; /* Warna background putih agar kontras dengan tulisan hitam */
-    border: 1px solid #e0e0e0; /* Border dengan warna abu-abu muda */
+    background: #ffffff; /* Background putih bersih */
+    border-left: 4px solid #2ecc71; /* Aksen garis kiri hijau segar */
+    border-right: 1px solid #eeeeee;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
     border-radius: 8px;
     text-align: left;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek shadow untuk memberikan kesan elemen yang lebih menonjol */
+    color: #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Shadow sangat subtle */
 }
 
 .info-mobil p {
@@ -285,7 +289,10 @@
         <!-- Foto Mobil -->
       <div class="foto-mobil-container" id="fotoMobilContainer" style="display: none;">
     <img src="" class="foto-mobil" id="fotoMobil" alt="Foto Mobil" onclick="showFullPhoto(this.src)">
- <div class="info-mobil">
+
+</div>
+        <!-- info Mobil -->
+         <div class="info-mobil" id="infomobilContainer" style="display: none;" >
         <p>
             <i class="fas fa-file-alt"></i> <!-- Ikon untuk KIR -->
             <strong>KIR:</strong> <span id="infoKIR">-</span>
@@ -295,7 +302,6 @@
             <strong>Pajak:</strong> <span id="infoPajak">-</span>
         </p>
     </div>
-</div>
         
        <!-- info tune up Mobil -->
         <div class="info-mobil" id="tuneupContainer" style="display: none;">
@@ -357,6 +363,7 @@
                     document.getElementById('fotoMobil').src = data[0].foto;
 
                      // Tampilkan KIR dan Pajak
+                    document.getElementById('infomobilContainer').style.display = 'block';
                      document.getElementById('infoKIR').textContent = data[0].kir || '-';
                     document.getElementById('infoPajak').textContent = data[0].pajak || '-';
 
