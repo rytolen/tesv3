@@ -310,11 +310,11 @@
         <div class="info-mobil" id="tuneupContainer" style="display: none;">
         <p>
             <i class="fas fa-cogs"></i> <!-- tuneup mesin -->
-            <strong>Tune UP Mesin:</strong> <span id="tuneupmesin">-</span>
+            <strong>Tune UP Mesin:</strong> <span id="mesin">-</span>
         </p>
         <p>
             <i class="fas fa-cogs"></i> <!-- tuneup thermo -->
-            <strong>Tune UP Thermo:</strong> <span id="tuneupthermo">-</span>
+            <strong>Tune UP Thermo:</strong> <span id="thermo">-</span>
         </p>
     </div>
         
@@ -328,8 +328,7 @@
                     <th>Form Perbaikan</th>
                     <th>Tanggal Selesai</th> 
                     <th>Status</th>
-                    <th>Tune UP Mesin</th> 
-                    <th>Tune UP Thermo</th> 
+                    
                 </tr>
             </thead>
             <tbody id="dataRiwayat"></tbody>
@@ -351,7 +350,7 @@
             document.querySelector('.loading').style.display = 'block';
             try {
                 if (!barcode) return;
-                let url = `https://script.google.com/macros/s/AKfycbzImTrHbSsVfYat8Cvr4qiGSrJwpPzf4TvAvqnlzVjuh8ps4aKGgNLly5_aO1hctSqR/exec?barcode=${barcode}`;
+                let url = `https://script.google.com/macros/s/AKfycbyc4A2AMzeNCpE96TxX0VXwoOw1SCQq-7eX9lw7B5fXrC-BDNve39hTZUKl0k96T29g/exec?barcode=${barcode}`;
                 let response = await fetch(url);
                 let data = await response.json();
 
@@ -373,8 +372,8 @@
 
                      // Tampilkan tuneup
                     document.getElementById('tuneupContainer').style.display = 'block';
-                     document.getElementById('tuneupmesin').textContent = data[0].tuneupm || '-';
-                    document.getElementById('tuneupthermo').textContent = data[0].tuneupt || '-';
+                     document.getElementById('mesin').textContent = data[0].mesin || '-';
+                    document.getElementById('thermo').textContent = data[0].thermo || '-';
 
                     // Tampilkan data riwayat
                     data.forEach(item => {
@@ -418,20 +417,7 @@
                                 </div>
                                 <span class="status ${statusClass}">${item.status}</span>
                             </td>
-                             <td>
-                                <div class="label-container">
-                                    <i class="fas fa-cogs"></i>
-                                    <span>Tune UP Mesin</span>
-                                </div>
-                                ${item.tuneupm}
-                            </td>
-                             <td>
-                                <div class="label-container">
-                                    <i class="fas fa-cogs"></i>
-                                    <span>Tune UP Thermo</span>
-                                </div>
-                                ${item.tuneupt}
-                            </td>
+                            
                         </tr>`;
                         tbody.innerHTML += row;
                     });
